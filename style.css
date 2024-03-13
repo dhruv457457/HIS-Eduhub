@@ -1,0 +1,35 @@
+* {
+    margin: 0px;
+    padding: 0%;
+    scroll-behavior: smooth;
+}
+
+/* navbar  */
+.logo {
+    width: 40px;
+    height: 23px;
+    background-color: aliceblue;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e4dce8;
+    height: 50px;
+}
+
+.right ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+.right ul li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.right ul li a{
+    text-decoration: none;
+    color: black;
+}
