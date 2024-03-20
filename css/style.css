@@ -72,12 +72,21 @@ main {
 
 
     z-index: -1;
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
 }
 
 
 /* Video styling */
 main video {
     width: 100%;
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
     position: absolute;
     top: -30vh;
     left: 0;
