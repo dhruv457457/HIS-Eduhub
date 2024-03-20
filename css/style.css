@@ -6,7 +6,13 @@
     scroll-behavior: smooth;
 }
 
-/* navbar  */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(174, 232, 255, 0.63);
+}
+
 .logo {
     width: 40px;
     height: 23px;
@@ -15,43 +21,80 @@
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color: #e4dce8;
+    background-color: transparent;  
     height: 50px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; 
+    padding: 0 20px; 
+    position: absolute;
+    color: black;
 }
 
 .right ul {
     display: flex;
     list-style: none;
     gap: 30px;
+    margin: 0; 
 }
 
 .right ul li {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 .right ul li a {
     text-decoration: none;
-    color: black;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s; 
 }
 
-/* navbar ends */
+.right ul li a:hover {
+    color: rgba(255, 255, 255, 0.7); 
+}
 
-/* main starts */
+
 main {
-    width: 100%;
-    height: 400px;
-    background-color: #e4dce8;
+    padding-top: 50px; 
+    position: relative ;
+    color: #333;
+      
 }
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    ;
+
+    z-index: -1;
+    object-fit: ;
+}
+
+
+/* Video styling */
+main video {
+    width: 100%;
+
+    object-fit: ;
+    position: absolute;
+    top: -30vh;
+    left: 0;
+    z-index: -1;
+}
+
+
 
 /* cards starts  */
 
 .features {
-    padding: 50px;
+    padding-top: 10px;
     text-align: center;
+    margin-top: 500px;
 }
 
 .feature {
@@ -141,11 +184,11 @@ h1 {
 }
 .answer.show {
     display: block;
-    max-height: 1000px; /* Adjust as needed */
+    max-height: 1000px; 
     opacity: 1;
 }
 
-/* Responsive adjustments */
+
 @media only screen and (max-width: 600px) {
     .container {
         padding: 10px;
@@ -155,7 +198,7 @@ h1 {
     }
 }
 
-/* section ends here  */
+
 
 /* feedback form starts from here  */
 .container1 {
