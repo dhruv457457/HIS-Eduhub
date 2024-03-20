@@ -23,14 +23,14 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;  
+    background-color: transparent;
     height: 50px;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9999; 
-    padding: 0 20px; 
+    z-index: 9999;
+    padding: 0 20px;
     position: absolute;
     color: black;
 }
@@ -39,7 +39,7 @@ nav {
     display: flex;
     list-style: none;
     gap: 30px;
-    margin: 0; 
+    margin: 0;
 }
 
 .right ul li {
@@ -50,37 +50,34 @@ nav {
 .right ul li a {
     text-decoration: none;
     color: rgb(0, 0, 0);
-    transition: color 0.3s; 
+    transition: color 0.3s;
 }
 
 .right ul li a:hover {
-    color: rgba(255, 255, 255, 0.7); 
+    color: rgba(255, 255, 255, 0.7);
 }
 
 
 main {
-    padding-top: 50px; 
-    position: relative ;
+    padding-top: 50px;
+    position: relative;
     color: #333;
-      
+
 }
 
 .bg-video {
     position: absolute;
     top: 0;
     left: 0;
-    ;
+
 
     z-index: -1;
-    object-fit: ;
 }
 
 
 /* Video styling */
 main video {
     width: 100%;
-
-    object-fit: ;
     position: absolute;
     top: -30vh;
     left: 0;
@@ -90,64 +87,146 @@ main video {
 
 
 /* cards starts  */
-
-.features {
-    padding-top: 10px;
-    text-align: center;
-    margin-top: 500px;
+section.articles {
+    box-sizing: border-box;
+    font-family: "Figtree", sans-serif;
+margin-top: 500px;
 }
 
-.feature {
-    display: inline-block;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
+article {
+    --img-scale: 1.001;
+    --title-color: black;
+    --link-icon-translate: -20px;
+    --link-icon-opacity: 0;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #fff;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
 }
 
-.feature img {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-}
-
-.feature h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
-}
-.button{
-    text-align: center;
-   
-}
-.button button{
-    padding: 7px 15px;
-    border-radius: 15px;
-    background-color: rgb(216, 236, 253);
-    color: rgb(14, 150, 234);
-    font-size: 17px;
-    margin-top: 7px;
-    border: none;
-    font-weight: bold;
+article a::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
     cursor: pointer;
+    content: "";
 }
 
-.button button a:hover{
-    background-color: rgb(194, 225, 246);
-    color: rgb(10, 136, 214);
+/* basic article elements styling */
+article h2 {
+    margin: 0 0 18px 0;
+    font-family: "Bebas Neue", cursive;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
 }
 
-button a { text-decoration: none;
-    padding: 7px 15px;
-    border-radius: 15px;
-    background-color: rgb(216, 236, 253);
-    color: rgb(14, 150, 234);
-    font-size: 17px;
-    margin-top: 7px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
+figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
 }
+
+article img {
+    max-width: 100%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+    padding: 24px;
+}
+
+article a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #28666e;
+}
+
+article a:focus {
+    outline: 1px dotted #28666e;
+}
+
+article a .icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    transform: translateX(var(--link-icon-translate));
+    opacity: var(--link-icon-opacity);
+    transition: all 0.3s;
+}
+
+/* using the has() relational pseudo selector to update our custom properties */
+article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: #28666e;
+    --link-icon-translate: 0;
+    --link-icon-opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+
+.articles {
+    display: grid;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+    article {
+        container: card/inline-size;
+    }
+
+    .article-body p {
+        display: none;
+    }
+}
+
+@container card (min-width: 380px) {
+    .article-wrapper {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+    }
+
+    .article-body {
+        padding-left: 0;
+    }
+
+    figure {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    figure img {
+        height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+}
+
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
 /* cards end  */
 
 /* section starts from here  */
@@ -159,20 +238,24 @@ button a { text-decoration: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
+
 h1 {
     text-align: center;
     color: #333;
 }
+
 .faq-item {
     margin-bottom: 20px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 20px;
 }
+
 .question {
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
 }
+
 .answer {
     display: none;
     margin-top: 10px;
@@ -182,9 +265,10 @@ h1 {
     overflow: hidden;
     opacity: 0;
 }
+
 .answer.show {
     display: block;
-    max-height: 1000px; 
+    max-height: 1000px;
     opacity: 1;
 }
 
@@ -193,6 +277,7 @@ h1 {
     .container {
         padding: 10px;
     }
+
     .faq-item {
         margin-bottom: 15px;
     }
@@ -209,17 +294,21 @@ h1 {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 h2 {
     text-align: center;
     margin-bottom: 20px;
 }
+
 .form-group {
     margin-bottom: 20px;
 }
+
 label {
     display: block;
     font-weight: bold;
 }
+
 input[type="text"],
 input[type="email"],
 textarea {
@@ -229,14 +318,17 @@ textarea {
     border-radius: 5px;
     transition: border-color 0.3s;
 }
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
     border-color: #007bff;
 }
+
 textarea {
     height: 100px;
 }
+
 button {
     padding: 10px 20px;
     background-color: #007bff;
@@ -246,9 +338,11 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 button:hover {
     background-color: #0056b3;
 }
+
 .success-message {
     background-color: #d4edda;
     color: #155724;
