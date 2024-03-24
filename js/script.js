@@ -30,3 +30,15 @@ document.getElementById('feedbackForm').addEventListener('submit', function (eve
     // Show success message
     document.getElementById('successMessage').style.display = 'block';
 });
+
+
+
+// responsive navbar 
+document.addEventListener('DOMContentLoaded', function () {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.right ul');
+
+    burger.addEventListener('click', function () {
+        nav.classList.toggle('show');
+    });
+});
