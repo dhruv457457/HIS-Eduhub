@@ -17,7 +17,7 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #fede6be6;
+  background-color: #952aff;
   height: 50px;
 
 
@@ -115,12 +115,12 @@ nav {
 }
 
 .event .event-left {
-  background: #fede6b;
+  background: #952aff;
   min-width: 82px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   padding: 8px 48px;
   font-weight: bold;
   text-align: center;
@@ -151,7 +151,8 @@ nav {
 }
 
 .event .event-right .event-timing {
-  background: #fede6b;
+  background: #952aff;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
