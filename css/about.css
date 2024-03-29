@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: #f5f5f5;
+    background-color: whitesmoke;
 }
 
 .row {
@@ -14,8 +14,11 @@ body{
     flex-wrap: wrap;
     padding: 2em 1em;
     text-align: center;
+    background-color: whitesmoke;
 }
-
+section{
+    background-color: whitesmoke;
+}
 .column {
     width: 100%;
     padding: 0.5em 0;
@@ -108,8 +111,7 @@ h1{
     max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
+ background-color: whitesmoke;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -173,7 +175,7 @@ h1{
     
     /* feedback form ends here  */
 
-    /* navbar  */
+/* navbar  */
 .logo {
     width: 40px;
     height: 23px;
@@ -184,7 +186,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #fede6be6;
+    background-color: #fede6bdc;
     height: 50px;
 
 
@@ -207,11 +209,25 @@ nav {
     color: black;
 }
 
+.burger {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+    right: 20px;
+    top: 25px;
+    transform: translateY(-50%);
+}
+
+.line {
+    width: 33px;
+    background-color: black;
+    height: 4px;
+    margin: 3px 0;
+}
 
 @media only screen and (max-width: 767px) {
     nav {
         height: 50px;
-       
     }
 
     .right ul {
